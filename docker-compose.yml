@@ -1,0 +1,27 @@
+version: '3'
+services:
+    nginx:
+        container_name: nginx
+        image: nginx:1.15
+        ports:
+            - 80:80
+        volumes:
+            - ./src:/usr/share/nginx/html
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    php-fpm:
+        container_name: laravel_app
+        build: ./php-fpm
+        volumes:
+            - ./src:/var/www/html
+    mysql:
+        image: mysql:5.7
+        container_name: MySQL
+        platform: linux/x86_64
+        environment:
+            MYSQL_DATABASE: laravel_db
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: laravel_user
+            MYSQL_PASSWORD: laravel_pass
+            TZ: Asia/Tokyo
+        ports:
+            - 3306:3306
