@@ -1,21 +1,21 @@
 version: '3'
 services:
     nginx:
-        container_name: nginx
+        container_name: mars_weather_info_nginx
         image: nginx:1.15
         ports:
-            - 80:80
+            - 8000:80
         volumes:
             - ./src:/usr/share/nginx/html
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     php-fpm:
-        container_name: laravel_app
+        container_name: mars_weather_info_laravel_app
         build: ./php-fpm
         volumes:
             - ./src:/var/www/html
     mysql:
         image: mysql:5.7
-        container_name: MySQL
+        container_name: mars_weather_info_MySQL
         platform: linux/x86_64
         environment:
             MYSQL_DATABASE: laravel_db
