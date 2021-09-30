@@ -31,9 +31,9 @@ class MarsWeatherInformations extends Migration
             $table->integer('wind_speed')->nullable()->default(null);
             $table->time('sunrise')->nullable()->default(null);
             $table->time('sunset')->nullable()->default(null);
-            $table->dateTime('terrestrial_date')->nullable()->default(null);
-            $table->date('update_date')->nullable()->default(null);
-            $table->date('create_date')->nullable()->default(null);
+            $table->date('terrestrial_date')->nullable()->default(null);
+            $table->dateTime('update_date')->nullable()->default(null);
+            $table->dateTime('create_date')->nullable()->default(null);
         });
     }
 
